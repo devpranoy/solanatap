@@ -39,6 +39,14 @@
         <link rel="stylesheet" href="css/default.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/responsive.css">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LEMSLT8YKM"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-LEMSLT8YKM');
+        </script>
     </head>
     <body>
 
@@ -104,10 +112,21 @@
                                     <h2 class="wow fadeInUp animated" data-wow-delay="0.4s">Recieve Testnet and Devnet Solana ⛓️ </h2>
                                     <p class="wow fadeInUp animated" data-wow-delay="0.9s">Solana is a high-performance blockchain supporting builders around the world creating crypto apps that scale. We have made this faucet to make it easier for building and testing your projects. </p>
                                     <div class="hero-form wow fadeInUp animated" data-wow-delay="1.3s">
-                                        <form action="#">
-                                            <input type="text" placeholder="Enter your Solana Wallet Address">
+                                        <form method="POST">
+                                            <input name="address" type="text" placeholder="Enter your Solana Wallet Address">
                                             <button type="submit">Get Sol</button>
-                                        </form>
+                                        </form> <br>
+                                        {% with messages = get_flashed_messages(with_categories=true) %}  
+                                            {% if messages %}  
+                                                {% for category, message in messages %}  
+                                                <div class="alert alert-{{category}}" role="alert">
+                                                     {{ message }}  
+                                                </div>
+                                                {% endfor %}  
+                                            {% endif %}  
+                                        {% endwith %} 
+                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +140,7 @@
                 </div>
             </section>
             <!-- slider-area end -->
-
+            
         </main>
 
         <!-- footer start  -->
